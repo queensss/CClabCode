@@ -12,11 +12,10 @@ under [_]
 num {digit}{digit}*
 float_num {num}*[.]{num}
 %%
-{num} {printf("%s -> NUMBER\n", yytext);} // this is wrong
-{digit}{digit}* {printf("%s -> INT_NUMBER\n", yytext);}
 
-{float_num} {printf("%s -> FLOAT_NUM\n", yytext);}
- {num}*[.]{num}  {printf("%s -> FLOAT_NUMBER\n", yytext);}
+{num} {printf("%s -> INT_NUMBER\n", yytext);} 
+{float_num} {printf("%s -> FLOAT_NUMBER\n", yytext);}
+
 
 "+" {printf("%s -> ADD\n", yytext);}
 "int" {printf("%s -> INT\n", yytext);}
@@ -29,6 +28,10 @@ float_num {num}*[.]{num}
 "}" {printf("%s -> RB\n", yytext);}
 "=" {printf("%s -> ASSIGN\n", yytext);}
 ";" {printf("%s -> SEMI\n", yytext);}
+"for"   {printf("%s -> FOR\n", yytext);}
+"while"  {printf("%s -> WHILE\n", yytext);}
+"return" {printf("%s -> RETURN\n", yytext);}
+
 ({under}|{letter})({under}|{letter}|{digit})* {printf("%s -> ID\n", yytext);}
 
 {delim} {}
