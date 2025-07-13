@@ -1,7 +1,8 @@
 %option noyywrap
 
 %{
-
+//Roll Number: 221115053
+//
 %}
 
 letter [a-zA-Z]
@@ -12,11 +13,16 @@ num {digit}{digit}*
 float_num {num}*[.]{num}
 %%
 {num} {printf("%s -> NUMBER\n", yytext);} // this is wrong
+{digit}{digit}* {printf("%s -> INT_NUMBER\n", yytext);}
+
+{float_num} {printf("%s -> FLOAT_NUM\n", yytext);}
+ {num}*[.]{num}  {printf("%s -> FLOAT_NUMBER\n", yytext);}
 
 "+" {printf("%s -> ADD\n", yytext);}
 "int" {printf("%s -> INT\n", yytext);}
 "float" {printf("%s -> FLOAT\n", yytext);}
 "while" {printf("%s -> WHILE\n", yytext);}
+"if" {printf("%s -> IF\n", yytext);}
 "(" {printf("%s -> LP\n", yytext);}
 ")" {printf("%s -> RP\n", yytext);}
 "{" {printf("%s -> LB\n", yytext);}
@@ -24,7 +30,7 @@ float_num {num}*[.]{num}
 "=" {printf("%s -> ASSIGN\n", yytext);}
 ";" {printf("%s -> SEMI\n", yytext);}
 ({under}|{letter})({under}|{letter}|{digit})* {printf("%s -> ID\n", yytext);}
-{float_num} {printf("%s -> FLOAT_NUM\n", yytext);}
+
 {delim} {}
 %%
 
