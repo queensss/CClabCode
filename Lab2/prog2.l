@@ -11,7 +11,8 @@ under [_]
 num {digit}{digit}*
 float_num {num}*[.]{num}
 %%
-{num} {printf("%s -> NUMBER\n", yytext);}
+{num} {printf("%s -> NUMBER\n", yytext);} // this is wrong
+
 "+" {printf("%s -> ADD\n", yytext);}
 "int" {printf("%s -> INT\n", yytext);}
 "float" {printf("%s -> FLOAT\n", yytext);}
