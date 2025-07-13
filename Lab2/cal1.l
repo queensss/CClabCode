@@ -9,9 +9,12 @@ digit [0-9]
 delim [ \t]
 letter[a-zA-Z]
 under[_]
+num {digit}{digit}*
+float_num {num}*[.]{num}
 
 %%
-{digit}{digit}* {printf("%s -> INT_NUMBER\n", yytext);}
+{num} {printf("%s -> INT_NUMBER\n", yytext);}
+{float_num} {printf("%s -> FLOAT_NUMBER\n", yytext);}
 "+" {printf("%s -> ADD\n", yytext);}
 "-" {printf("%s -> SUB\n", yytext);}
 "*" {printf("%s -> MUL\n", yytext);}
