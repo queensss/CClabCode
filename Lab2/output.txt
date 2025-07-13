@@ -1,3 +1,47 @@
-13
+1 -> INT_NUMBER
++ -> ADD
+12 -> INT_NUMBER
 
-Parsing Finished
+1 -> INT_NUMBER
++ -> ADD
+13 -> INT_NUMBER
+
+5 -> INT_NUMBER
+- -> SUB
+2 -> INT_NUMBER
+
+10 -> INT_NUMBER
+/ -> DIV
+5 -> INT_NUMBER
+
+4 -> INT_NUMBER
+* -> MUL
+2 -> INT_NUMBER
+
+55 -> INT_NUMBER
+% -> REM
+23 -> INT_NUMBER
+
+5 -> INT_NUMBER
++ -> ADD
+3 -> INT_NUMBER
+
+
+if -> IF
+( -> LP
+a -> ID
+> -> GT
+b -> ID
+) -> RP
+
+{ -> LCB
+
+a -> ID
+= -> ASSIGN
+b -> ID
++ -> ADD
+c -> ID
+; -> SEMI
+
+
+} -> RCB
