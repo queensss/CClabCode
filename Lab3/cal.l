@@ -20,6 +20,10 @@ float_num   {num}*[.]{num}
 
 "="     { return(ASSIGN); }
 ";"     { return(SEMI); }
+"+" { return(ADD);}
+"-" { return(SUB);}
+"*" { return(MUL);}
+"/" { return(DIV);}
 
 {num}  { yylval = atoi(yytext); return(INT_NUM); }
 {float_num}  { yylval = atof(yytext); return(FLOAT_NUM); }
