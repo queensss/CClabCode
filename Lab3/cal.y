@@ -41,6 +41,19 @@ dclr_stmt : Type ID SEMI
 
  ass_stmt : ID ASSIGN NUM SEMI;
 
+if_stmt : IF LP ID LT ID RP LCB stmts RCB;
+
+
+ ass_stmt : ID ASSIGN exp;
+
+ exp  : exp ADD term
+      |exp SUB term
+      |exp MUL term
+      |exp DIV term
+      | term ;
+
+ term : ID | INT_NUM;
+
 %%
 
 void yyerror(char *s)
