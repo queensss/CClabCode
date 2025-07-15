@@ -18,8 +18,8 @@ float_num {num}*[.]{num}
 
 
 "+" {printf("%s -> ADD\n", yytext);}
-"int" {printf("%s -> INT\n", yytext);}
-"float" {printf("%s -> FLOAT\n", yytext);}
+"int" {printf("%s -> INT_TYPE\n", yytext);}
+"float" {printf("%s -> FLOAT_TYPE\n", yytext);}
 "while" {printf("%s -> WHILE\n", yytext);}
 "if" {printf("%s -> IF\n", yytext);}
 "(" {printf("%s -> LP\n", yytext);}
@@ -29,7 +29,7 @@ float_num {num}*[.]{num}
 "=" {printf("%s -> ASSIGN\n", yytext);}
 ";" {printf("%s -> SEMI\n", yytext);}
 "for"   {printf("%s -> FOR\n", yytext);}
-"while"  {printf("%s -> WHILE\n", yytext);}
+"else"  {printf("%s ->  ELSE\n", yytext);}
 "return" {printf("%s -> RETURN\n", yytext);}
 
 ({under}|{letter})({under}|{letter}|{digit})* {printf("%s -> ID\n", yytext);}
