@@ -4,18 +4,27 @@
     #include "cal.tab.h"
 %}
 
-digit [0-9]
-number ({digit}+)
-delim [ \t\n]
-ws {delim}+
-alpha [A-Za-z]
-undr [_]
+letter  [a-zA-Z]
+digit   [0-9]
+delim   [ \t]
+under   [_]
+num     {digit}{digit}*
+float_num   {num}*[.]{num}
 
 %%
-{ws} {}
-{number} {yylval = atoi(yytext); return(NUM);}
-"+" {return(ADD);}
-"-" {return(SUB);}
-"*" {return(MUL);}
-"/" {return(DIV);}
+
+{delim} {}
+
+"int"   { return(INT_TYPE); }
+"float" { return(FLOAT_TYPE); }
+
+"="     { return(ASSIGN); }
+";"     { return(SEMI); }
+
+{num}  { yylval = atoi(yytext); return(INT_NUM); }
+{float_num}  { yylval = atof(yytext); return(FLOAT_NUM); }
+
+(({under}|{letter})({under}|{letter}|{digit})*)  { return(ID); }
+
+
 %%
