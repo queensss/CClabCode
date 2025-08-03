@@ -67,19 +67,24 @@ int gettype(char *name)
 
 int typecheck(int type1, int type2)
 {
-    if(type1==INT_TYPE && type2==INT_TYPE)
+       if(type1==INT_TYPE && type2==INT_TYPE)
         return INT_TYPE;
     else if (type1==REAL_TYPE && type2==REAL_TYPE)
         return REAL_TYPE;
     else if (type1==CHAR_TYPE && type2==CHAR_TYPE)
         return CHAR_TYPE;
+    else if (type1==FLOAT_TYPE && type2==FLOAT_TYPE)
+        return FLOAT_TYPE;
+    else if (type1==FLOAT_TYPE && type2==REAL_TYPE)
+        return REAL_TYPE;
     else
     {
-        if (type1 > 3 || type1 < 0) type1 = 0;
-        if (type2 > 3 || type2 < 0) type2 = 0;
+        if (type1 > 4 || type1 < 0) type1 = 0;
+        if (type2 > 4 || type2 < 0) type2 = 0;
 
         printf("In line no %d, Data type %s is not matched with Data type %s.\n", lineno, typename[type1], typename[type2]);
         return UNDEF_TYPE;
     }
 }
+
 
