@@ -25,7 +25,9 @@ CCONST    (\'{print}\')
 
 "int"       { return INT; }
 "double"    { return DOUBLE; }
-"char"		{ return CHAR; }
+"char"	    { return CHAR; }
+"float"     { return FLOAT; }
+
 
 "if"		{return IF;}
 "else"		{return ELSE;}
