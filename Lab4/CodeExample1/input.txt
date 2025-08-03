@@ -1,7 +1,11 @@
 int a;
 char a;
+double b;
+float g;
 
-if(b > 3)
+if(g > 3.0)
 {
+    
+ a = g+20;
 
 }
