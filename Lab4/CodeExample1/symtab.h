@@ -2,8 +2,9 @@
 #define INT_TYPE 1
 #define REAL_TYPE 2
 #define CHAR_TYPE 3
+#define FLOAT_TYPE 4
 
-char *typename[] = {"UNDEF_TYPE", "INT_TYPE", "REAL_TYPE", "CHAR_TYPE"};
+char *typename[] = {"UNDEF_TYPE", "INT_TYPE", "REAL_TYPE", "CHAR_TYPE" , "FLOAT_TYPE"};
 
 typedef struct list_t
 {
@@ -17,4 +18,5 @@ void insert(char* name, int type);
 list_t* search(char *name);
 int idcheck(char* name);
 int gettype(char *name);
+
 int typecheck(int type1, int type2);
