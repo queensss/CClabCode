@@ -14,7 +14,7 @@
     int int_val;
 }
 
-%token INT IF ELSE WHILE CONTINUE BREAK PRINT DOUBLE CHAR
+%token INT IF ELSE WHILE CONTINUE BREAK PRINT DOUBLE CHAR FLOAT 
 %token ADDOP SUBOP MULOP DIVOP EQUOP LT GT
 %token LPAREN RPAREN LBRACE RBRACE SEMI ASSIGN
 %token<str_val> ID
@@ -22,11 +22,13 @@
 %token FCONST
 %token CCONST
 
-%left LT GT /*LT GT has lowest precedence*/
+
+%left LT GT 
 %left ADDOP 
 %left MULOP /*MULOP has lowest precedence*/
+%right ASSIGN
 
-%type<int_val> type exp constant
+%type<int_val> type exp constant 
 
 %start code
 
@@ -37,13 +39,15 @@ statements: statements statement | ;
 
 statement:  declaration
            | if_statement
+           | ass_stmt
+         
             ;
 
 declaration: type ID SEMI
-            {
-                //printf("%s\n", $2);
-                //printf("%d\n", $1);
-                insert($2, $1);
+             {
+          // printf("%s\n", $2);
+          // printf("%d\n", $1);
+             insert($2, $1);
             }
             |type ID ASSIGN exp SEMI
             ;
@@ -51,6 +55,8 @@ declaration: type ID SEMI
 type: INT {$$=INT_TYPE;}
     | DOUBLE {$$=REAL_TYPE;}
     | CHAR {$$=CHAR_TYPE;}
+    | FLOAT { $$ = FLOAT_TYPE;}
+     
     ;
 
 exp: constant
@@ -65,6 +71,9 @@ exp: constant
         }
       }
     | exp ADDOP exp
+     {
+        $$ = typecheck($1, $3);
+     }
     | exp MULOP exp
     | exp GT exp
     {
@@ -72,13 +81,21 @@ exp: constant
         //printf("%d\n", $3);
         $$ = typecheck($1, $3);
     }
-    |exp LT exp
+     |exp LT exp
+     | exp ASSIGN exp
+      {
+        $$ = typecheck($1, $3);
+      }
     ;
 
 constant: ICONST {$$=INT_TYPE;}
         | FCONST {$$=REAL_TYPE;}
         | CCONST {$$=CHAR_TYPE;}
         ;
+
+        ass_stmt : exp SEMI;
+
+
 
 if_statement: IF LPAREN exp RPAREN LBRACE statements RBRACE optional_else
         ;
