@@ -1,5 +1,8 @@
 In line no 1, Inserting a with type INT_TYPE in symbol table.
 In line no 2, Same variable a is declared more than once.
-In line no 4, ID b is not declared.
-In line no 4, Data type UNDEF_TYPE is not matched with Data type INT_TYPE.
+In line no 3, Inserting b with type REAL_TYPE in symbol table.
+In line no 4, Inserting g with type FLOAT_TYPE in symbol table.
+In line no 9, Data type INT_TYPE is not matched with Data type FLOAT_TYPE.
+In line no 9, Data type UNDEF_TYPE is not matched with Data type INT_TYPE.
 Parsing finished!
+
