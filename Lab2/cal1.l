@@ -15,12 +15,24 @@ float_num {num}*[.]{num}
 %%
 {num} {printf("%s -> INT_NUMBER\n", yytext);}
 {float_num} {printf("%s -> FLOAT_NUMBER\n", yytext);}
+"int" {printf("%s -> INT_TYPE\n", yytext);}
+"float" {printf("%s -> FLOAT_TYPE\n", yytext);}
+"," {printf("%s -> COMMA\n", yytext);}
+"for" {printf("%s -> FOR\n", yytext);}
+">=" {printf("%s -> GE\n", yytext);}
+"--"   { printf("%s -> DEC\n", yytext); }
+"++"   { printf("%s -> INC\n", yytext); }
+"printf" {printf("%s ->  PRINTF\n", yytext);}
+"return" {printf("%s ->  RETURN\n", yytext);}
+
 "+" {printf("%s -> ADD\n", yytext);}
 "-" {printf("%s -> SUB\n", yytext);}
 "*" {printf("%s -> MUL\n", yytext);}
 "/" {printf("%s -> DIV\n", yytext);}
 "%" {printf("%s -> REM\n", yytext);}
 "if" {printf("%s -> IF\n", yytext);}
+"while" {printf("%s -> WHILE\n", yytext);}
+"<=" {printf("%s -> LE\n", yytext);}
 "(" {printf("%s -> LP\n", yytext);}
 ">" {printf("%s -> GT\n", yytext);}
 ")" {printf("%s -> RP\n", yytext);}
@@ -29,7 +41,6 @@ float_num {num}*[.]{num}
 ";" {printf("%s -> SEMI\n", yytext);}
 "}" {printf("%s -> RCB\n", yytext);}
 ({under}|{letter})({under}|{letter}|{digit})* {printf("%s -> ID\n", yytext);}
-
 
 {delim} {}
 %%
