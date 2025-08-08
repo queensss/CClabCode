@@ -44,4 +44,104 @@ c -> ID
 ; -> SEMI
 
 
+} -> RCB  
+
+while -> WHILE
+( -> LP
+x -> ID
+<= -> LE
+10 -> INT_NUMBER
+) -> RP
+
+{ -> LCB
+
+x -> ID
+= -> ASSIGN
+y -> ID
++ -> ADD
+z -> ID
+* -> MUL
+q -> ID
+/ -> DIV
+56.0 -> FLOAT_NUMBER
+; -> SEMI
+
 } -> RCB
+
+
+float -> FLOAT
+add -> ID
+( -> LP
+int -> INT
+a -> ID
+, -> COMMA
+int -> INT
+b -> ID
+) -> RP
+
+{ -> LCB
+
+float -> FLOAT
+c -> ID
+= -> ASSIGN
+a -> ID
++ -> ADD
+b -> ID
+* -> MUL
+60.0 -> FLOAT_NUMBER
+/ -> DIV
+4 -> INT_NUMBER
+; -> SEMI
+
+float -> FLOAT
+x -> ID
+= -> ASSIGN
+10.0 -> FLOAT_NUMBER
+; -> SEMI
+
+int -> INT
+y -> ID
+= -> ASSIGN
+12 -> INT_NUMBER
+; -> SEMI
+
+
+
+for -> FOR
+( -> LP
+int -> INT
+i -> ID
+= -> ASSIGN
+10 -> INT_NUMBER
+; -> SEMI
+i -> ID
+>= -> GE
+1 -> INT_NUMBER
+; -> SEMI
+i -> ID
+-- -> DEC
+; -> SEMI
+i -> ID
+++ -> INC
+) -> RP
+
+{ -> LCB
+
+printf ->  PRINTF
+; -> SEMI
+
+} -> RCB
+
+
+return ->  RETURN
+x -> ID
++ -> ADD
+y -> ID
+; -> SEMI
+
+} -> RCB
+
+
+
+
+
