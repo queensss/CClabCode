@@ -95,6 +95,12 @@ constant: ICONST {$$=INT_TYPE;}
 
         ass_stmt : exp SEMI;
 
+if_statement
+    : IF LPAREN exp RPAREN LBRACE statements RBRACE
+    | IF LPAREN exp RPAREN LBRACE statements RBRACE ELSE LBRACE statements RBRACE
+    ;
+
+
 
 
 if_statement: IF LPAREN exp RPAREN LBRACE statements RBRACE optional_else
@@ -119,3 +125,4 @@ int main (int argc, char *argv[])
 	printf("Parsing finished!\n");	
 	return 0;
 }
+
