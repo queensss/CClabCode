@@ -10,3 +10,24 @@ if(a>b)
 { 
     a = b+c;
 }
+
+while (x<=10)
+{
+    x = y + z * q / 56.0;
+}
+
+float add(int a, int b)
+{
+    float c = a + b * 60.0 / 4;
+    float x = 10.0;
+    int y = 12;
+ 
+
+    for (int i = 10; i >= 1; i--;i++)
+     {
+        printf;
+     }
+
+    return x + y;
+}
+
